@@ -5,7 +5,6 @@ All leetcode solutions i solve.
 ## Q1: Integer To Roman Numeral
 
 Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
-
 |I - [1]   |
 |----------|
 |V - [5]   |
