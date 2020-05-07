@@ -4,53 +4,50 @@ Created on Mon May  4 15:18:06 2020
 
 @author: mohsi
 """
-
+import itertools
 def alternate(s):
     list_words = []
     word_count = {}
-
-    for i in range(len(s)):
+    
+    new_string = "" 
+    
+    # first pass to clean for no repeats 
+    i=0
+    while (i < len(s)):
         char = s[i]
-        char_n = "" 
+        print(i)
+        new_string = new_string+char
+        while(i< len(s)-1 and s[i] == s[i+1]):
+            i=i+1
+       
+        i=i+1
         
-        if(i!=len(s)-1):
-            char_n =s[i+1]
-        
-        if (char not in list_words): # this means such a char has not been seen before
-            word_count[char] = 1 
-            list_words.append(char)
-        
+    for item in new_string:
+        if(item in list_words):
+            word_count[item]= word_count[item]+1
         else:
-            if(word_count[char] != -1):
-                word_count[char] = word_count[char]+1
-                
-        print(char,char_n)
-        if(char == char_n): # if they are alternating
-            print("alternating",char)
-            word_count[char] = - 1
-            
-
-    # get me the two biggest chars    
-    pair = [0,0]
-    pair_char = ["",""]
-
-    for char in list_words:
-        if(word_count[char]>pair[0]):
-            pair[0] = word_count[char]
-            pair_char[0] = char
-            
-    for char in list_words:
-        if(word_count[char]<=pair[0] and word_count[char]>pair[1] and char != pair_char[0]):
-            pair[1] = word_count[char]
-            pair_char[1] = char
-            
-    new_string = ""    
-    for char in s:
-        if(char == pair_char[0] or char == pair_char[1]):
-            new_string=new_string+char
-            
-    print(new_string)
+            word_count[item]=1
+            list_words.append(item)
         
-    return new_string
+    # get all combinations
+    words = ""
+    pairs = [''.join(x) for x in itertools.combinations(words.join(list_words),2)]
+    
+    # make list of biggest
+    combination_list = []
+    
+    for pair in pairs: 
+        reduced_word = ""
+        trailing_char = pair[0]
+        reduced_word = reduced_word+trailing_char
+        for char in s:
+            if ((char == pair[0] or char == pair[1]) and trailing_char != char):
+                reduced_word = reduced_word + char
+                trailing_char = char
+        
+        # reduced word is made, add it to the list 
+        combination_list.append(reduced_word)
+                           
+    return combination_list
 
-x= alternate("asdcbsdcagfsdbgdfanfghbsfdab")
+x= alternate("beabeefeab")
