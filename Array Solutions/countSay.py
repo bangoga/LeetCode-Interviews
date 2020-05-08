@@ -33,7 +33,8 @@ def countAndSay(n):
     if (n == 1):
         return "1"
 
-    if( n)
+    prev = countAndSay(n-1)
+    
     ret_string = ""
     
     return ret_string
