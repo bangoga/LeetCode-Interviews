@@ -34,12 +34,24 @@ def countAndSay(n):
         return "1"
 
     prev = countAndSay(n-1)
-    
     ret_string = ""
     
+    j = prev[0]
+    ret_string = ""+str(j)
+    i = 0
+    count = 0
+    while(i<len(prev)):
+        if(prev[i] == j ):
+            count = count + 1
+        else: 
+            ret_string = str(count)+ret_string
+            j=prev[i]
+            ret_string = ""+str(j)
+        i=i+1
+    ret_string=str(count)+ret_string
     return ret_string
 
-
+countAndSay(3)
 
 # =============================================================================
 # 
