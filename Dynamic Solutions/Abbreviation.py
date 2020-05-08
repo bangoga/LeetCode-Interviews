@@ -49,6 +49,6 @@ import sys
 
 
 def abbreviation(a, b):
-
+    return 0 
         
 ans = abbreviation("daBcd","ABC")
