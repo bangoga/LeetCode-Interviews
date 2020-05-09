@@ -32,27 +32,37 @@ def countAndSay(n):
     
     if (n == 1):
         return "1"
+    
+    if (n == 2):
+        return "11"
 
     prev = countAndSay(n-1)
     ret_string = ""
     
-    j = prev[0]
-    ret_string = ""+str(j)
-    i = 0
-    count = 0
-    while(i<len(prev)):
-        if(prev[i] == j ):
-            count = count + 1
-        else: 
-            ret_string = str(count)+ret_string
-            j=prev[i]
-            ret_string = ""+str(j)
-        i=i+1
-    ret_string=str(count)+ret_string
+    print(n)
+    c_char = prev[len(prev)-1]
+    count = 1
+    index = -1
+    all_counts=[]
+    # goes from previous lens to 0 
+    for i in range(len(prev)-1,-1,-1):
+        if(c_char == prev[i]):
+            count = count +1
+        # if its the last one 
+        elif:
+        else :
+            ret_string = str(count)+c_char+ret_string
+            count = 1
+            c_char = prev[i]
+            
     return ret_string
 
 countAndSay(3)
 
+
+
+x = "21"
+r = x[len(x)-1]
 # =============================================================================
 # 
 # 
