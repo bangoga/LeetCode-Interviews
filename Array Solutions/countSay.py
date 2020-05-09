@@ -39,25 +39,22 @@ def countAndSay(n):
     prev = countAndSay(n-1)
     ret_string = ""
     
-    print(n)
     c_char = prev[len(prev)-1]
-    count = 1
-    index = -1
-    all_counts=[]
+    #print(c_char)
+    count = 0
+
     # goes from previous lens to 0 
     for i in range(len(prev)-1,-1,-1):
-        if(c_char == prev[i]):
-            count = count +1
-        # if its the last one 
-        elif:
-        else :
-            ret_string = str(count)+c_char+ret_string
-            count = 1
-            c_char = prev[i]
+    #if last char and all leading chars are the same.
+        if(c_char==prev[i] and i==0):
+            count = count + 1 
+            ret_string = str(count)+prev[i]+ret_string
+            
+        
             
     return ret_string
 
-countAndSay(3)
+countAndSay(4)
 
 
 
